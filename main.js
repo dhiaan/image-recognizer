@@ -26,19 +26,21 @@ classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models
     console.log('Model Loaded!');
   }
 
-function check()
+  function check()
   {
- img = document.getElementById('captured_image');
- classifier.classify(img,gotresult);
+    img = document.getElementById('selfie_image');
+    classifier.classify(img, gotResult);
   }
 
-  function gotresult(error, results){
+
+
+function gotResult(error, results) {
   if (error) {
     console.error(error);
   } else {
-   console.log(results);
-   document.getElementById("result_object_name").innerHTML = results [0].label;
-   document.getElementById("result_object_accuracy").innerHTML = results [0].confidence.toFixed(3);
+   
+    console.log(results);
+    document.getElementById("result_object_name").innerHTML = results[0].label;
+    document.getElementById("result_object_accuracy").innerHTML = results[0].confidence.toFixed(3);
   }
-
 }
